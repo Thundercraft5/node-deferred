@@ -38,8 +38,7 @@
 	"author": "Thundercraft5",
 	"license": "MIT",
 	"dependencies": {
-		"@thundercraft5/node-errors": "latest",
-		"node-cron": "3.0.1"
+		"@thundercraft5/node-errors": "latest"
 	},
 	"devDependencies": {
 		"@thundercraft5/eslint-plugin": "file:../../Libraries/NodeJS/eslint-plugin",
