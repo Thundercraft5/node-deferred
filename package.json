@@ -1,0 +1,52 @@
+{
+	"name": "@thundercraft5/node-deferred",
+	"version": "1.0.2",
+	"type": "module",
+	"keywords": [
+		"large",
+		"scale",
+		"cron",
+		"job",
+		"manager"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thundercraft5/node-deferred.git"
+	},
+	"bugs": {
+		"url": "https://github.com/thundercraft5/node-deferred/issues"
+	},
+	"scripts": {
+		"prepublish": "npm run build",
+		"build:esm": "esbuild src/index.ts --outdir=dist/esm --sourcemap --bundle --platform=node --format=esm --target=esnext",
+		"build:cjs": "esbuild src/index.ts --outfile=dist/cjs/index.cjs --sourcemap --bundle --platform=node --format=cjs --target=esnext",
+		"build": "del-cli ./dist && npm run build:esm && npm run build:cjs && tsc"
+	},
+	"module": "./dist/esm/index.js",
+	"main": "./dist/cjs/index.cjs",
+	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/esm/index.js",
+			"require": "./dist/index.cjs",
+			"types": "./dist/types/index.d.ts"
+		}
+	},
+	"author": "Thundercraft5",
+	"license": "MIT",
+	"dependencies": {
+		"@thundercraft5/node-errors": "latest",
+		"node-cron": "3.0.1"
+	},
+	"devDependencies": {
+		"@thundercraft5/eslint-plugin": "file:../../Libraries/NodeJS/eslint-plugin",
+		"@thundercraft5/tsconfig": "file:../../Libraries/NodeJS/tsconfig",
+		"@types/node-cron": "3.0.1",
+		"del-cli": "4.0.1",
+		"eslint": "8.17.0",
+		"ts-node": "10.8.1",
+		"typescript": "4.8.0-dev.20220604"
+	},
+	"description": "A library to manage large-scale cron jobs.",
+	"homepage": "https://github.com/thundercraft5/node-cron-jobs#readme"
+}
