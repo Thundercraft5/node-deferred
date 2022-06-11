@@ -1,6 +1,6 @@
 {
 	"name": "@thundercraft5/node-deferred",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"type": "module",
 	"keywords": [
 		"deferred",
@@ -18,6 +18,7 @@
 	"bugs": {
 		"url": "https://github.com/thundercraft5/node-deferred/issues"
 	},
+	"homepage": "https://github.com/thundercraft5/node-deferred#readme",
 	"scripts": {
 		"prepublish": "npm run build",
 		"build:esm": "esbuild src/index.ts --outdir=dist/esm --sourcemap --bundle --platform=node --format=esm --target=esnext",
@@ -49,6 +50,5 @@
 		"ts-node": "10.8.1",
 		"typescript": "4.8.0-dev.20220604"
 	},
-	"description": "A library to manage large-scale cron jobs.",
-	"homepage": "https://github.com/thundercraft5/node-cron-jobs#readme"
+	"description": "A library to manage large-scale cron jobs."
 }
