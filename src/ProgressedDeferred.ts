@@ -21,7 +21,7 @@ export default class ProgressedDeferred<
 	T = void,
 	M extends EventProcessorMap = {},
 > extends Deferred<T> {
-	static #listeners = new WeakMap<any, Map<string, ((...args: any[]) => void)[]>>();
+	static #listeners = new WeakMap<any, Map<string,((...args: any[]) => void)[]>>();
 	static #count = 0;
 
 	#id = ProgressedDeferred.#count++;
@@ -73,6 +73,3 @@ export default class ProgressedDeferred<
 
 	static [Symbol.species] = ProgressedDeferred;
 }
-
-// @ts-ignore
-await new ProgressedDeferred<string, { test(key: string) }>().reject("Test");
