@@ -2,6 +2,9 @@
 	"extends": [
 		"plugin:@thundercraft5/typescript"
 	],
+	"ignorePatterns": [
+		"**/dist"
+	],
 	"overrides": [
 		{
 			"files": "**/*.ts",

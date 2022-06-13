@@ -68,5 +68,5 @@ export default class Deferred<T = any> extends Promise<T> {
 		if (this.#completed) throw new DeferredError("DEFERRED_ALREADY_COMPLETE", this.#id);
 	}
 
-	static [Symbol.species] = Deferred;
+	static get [Symbol.species]() { return Deferred; }
 }

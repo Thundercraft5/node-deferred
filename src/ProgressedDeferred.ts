@@ -21,7 +21,7 @@ export default class ProgressedDeferred<
 	T = void,
 	M extends EventProcessorMap = {},
 > extends Deferred<T> {
-	static #listeners = new WeakMap<any, Map<string,((...args: any[]) => void)[]>>();
+	static #listeners = new WeakMap<any, Map<string, ((...args: any[]) => void)[]>>();
 	static #count = 0;
 
 	#id = ProgressedDeferred.#count++;
@@ -63,7 +63,10 @@ export default class ProgressedDeferred<
 	}
 
 
-	#addListener<E extends keyof M>(event: Exclude<E, number | symbol>, listener: (...args: ToListenerMap<M>[E]) => void & ThisType<this>) {
+	#addListener<E extends keyof M>(
+		event: Exclude<E, number | symbol>,
+		listener: (...args: ToListenerMap<M>[E]) => void & ThisType<this>,
+	) {
 		const map = ProgressedDeferred.#listeners.get(this)!;
 
 		if (!map.has(event)) map.set(event, []);
@@ -71,5 +74,5 @@ export default class ProgressedDeferred<
 		map.get(event)!.push(listener as (...args: any[]) => void & ThisType<this>);
 	}
 
-	static [Symbol.species] = ProgressedDeferred;
+	static get [Symbol.species]() { return ProgressedDeferred; }
 }
